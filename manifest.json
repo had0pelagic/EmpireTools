@@ -1,0 +1,23 @@
+{
+  "description": "EmpireTools",
+  "manifest_version": 2,
+  "name": "EMT",
+  "version": "1.0",
+  "homepage_url": "https://github.com/had0pelagic/EmpireTools",
+  "icons": {
+    "48": "icons/bag.png"
+  },
+  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_icon": "icons/bag.png",
+    "theme_icons": [
+      {
+        "light": "icons/bag.png",
+        "dark": "icons/bag.png",
+        "size": 32
+      }
+    ],
+    "default_title": "EMT",
+    "default_popup": "popup/main.html"
+  }
+}
