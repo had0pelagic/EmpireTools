@@ -33,6 +33,11 @@ body {
   grid-row: 2;
 }
 
+.grid-pattern {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+}
+
 .button-28 {
   appearance: none;
   background-color: whitesmoke;

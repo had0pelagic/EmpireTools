@@ -10,7 +10,7 @@
     let items = document.getElementsByClassName(
       "rounded-lg border border-slate-dark bg-black-a px-3 py-2 text-center"
     );
-    let text = getText(items);
+    let text = getHistoryValues(items);
 
     if (isTxt) {
       saveText(`${date}.txt`, text);
@@ -19,7 +19,7 @@
     }
   }
 
-  function getText(items) {
+  function getHistoryValues(items) {
     let text = "";
 
     for (i = items.length; i--; ) {
@@ -30,6 +30,34 @@
       }
 
       text += item + " ";
+    }
+
+    return text;
+  }
+
+  function getPattern() {
+    let patternDiv = document.getElementsByClassName("relative flex h-24")[0];
+    let items = patternDiv.getElementsByClassName("previous-rolls-item");
+    let text = getPatternValues(items);
+
+    navigator.clipboard.writeText(text);
+  }
+
+  function getPatternValues(items) {
+    let text = " ";
+
+    for (i = 0; i < items.length; i++) {
+      let item = items[i].children[0].className;
+
+      if (item.includes("coin-ct")) {
+        text += "ct";
+      } else if (item.includes("coin-t")) {
+        text += "t";
+      } else if (item.includes("coin-bonus")) {
+        text += "d";
+      }
+
+      text += " ";
     }
 
     return text;
@@ -59,6 +87,8 @@
       getHistory(true);
     } else if (message.command === "getHistoryWord") {
       getHistory(false);
+    } else if (message.command === "getPattern") {
+      getPattern();
     }
   });
 })();

@@ -7,7 +7,7 @@
   "icons": {
     "48": "icons/bag.png"
   },
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "clipboardWrite"],
   "browser_action": {
     "default_icon": "icons/bag.png",
     "theme_icons": [
